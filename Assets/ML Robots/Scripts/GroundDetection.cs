@@ -10,8 +10,6 @@ public class GroundDetection : MonoBehaviour
     [Header("Traced Agent")] [SerializeField]
     private Agent agent;
 
-    [SerializeField] private bool isBody;
-
 
     // Start is called before the first frame update
     void Start()
@@ -27,23 +25,8 @@ public class GroundDetection : MonoBehaviour
     {
         if (other.transform.CompareTag("ground"))
         {
-            if (isBody)
-            {
-                agent.AddReward(-10f);
-                agent.EndEpisode();
-            }
-            else
-            {
-                agent.GetComponent<CrawlRobot>().legsContactDictionary[transform] = true;
-            }
-        }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (!isBody)
-        {
-            agent.GetComponent<CrawlRobot>().legsContactDictionary[transform] = false;
+            // agent.AddReward(-10f);
+            agent.EndEpisode();
         }
     }
 }

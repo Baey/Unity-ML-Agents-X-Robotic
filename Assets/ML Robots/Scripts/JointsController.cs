@@ -60,7 +60,7 @@ public class JointsController : MonoBehaviour
 
             if (elementArticulationBody.isRoot)
             {
-                float x = Random.Range(-10f, 10f), y = Random.Range(-10f, 10f), z = Random.Range(-10f, 10f);
+                float x = Random.Range(-15f, 15f), y = Random.Range(-15f, 15f), z = Random.Range(-15f, 15f);
                 elementArticulationBody.TeleportRoot(ele.Value.initialPosition, Quaternion.Euler(x, y, z));
             }
         }
